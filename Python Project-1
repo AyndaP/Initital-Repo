@@ -1,0 +1,26 @@
+import os
+
+def get_file_info():
+    files_list = []
+    
+    # Iterate over each file in the current directory
+    for file_name in os.listdir():
+        file_info = {}
+        
+        # Get file name
+        file_info['name'] = file_name
+        
+        # Get file size (in bytes)
+        file_info['size'] = os.path.getsize(file_name)
+        
+        # Append the file info dictionary to the list
+        files_list.append(file_info)
+    
+    return files_list
+
+if __name__ == "__main__":
+    files_info = get_file_info()
+    
+    # Print the list of dictionaries containing file information
+    for file_info in files_info:
+        print(file_info)
